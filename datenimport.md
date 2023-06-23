@@ -1,9 +1,16 @@
+```
 CREATE INDEX FOR (p:Publication) ON (p.id)
+```
 
+```
 CREATE INDEX FOR (a:Author) ON (a.name)
+```
 
+```
 CREATE INDEX FOR (v:Venue) ON (v.name)
+```
 
+```
 //import authors
 CALL apoc.periodic.iterate(
   "CALL apoc.load.json('file:///dblp-ref-3.json') YIELD value",
@@ -13,7 +20,9 @@ CALL apoc.periodic.iterate(
   )",
   {batchSize: 1000, iterateList: true, parallel: false}
 )
+```
 
+```
 //import publications
 CALL apoc.periodic.iterate(
   "CALL apoc.load.json('file:///dblp-ref-3.json') YIELD value",
@@ -24,7 +33,9 @@ CALL apoc.periodic.iterate(
        p.year = value.year",
   {batchSize: 1000, iterateList: true, parallel: false}
 )
+```
 
+```
 //if exists: import referenced publications 
 CALL apoc.periodic.iterate(
   "CALL apoc.load.json('file:///dblp-ref-3.json') YIELD value",
@@ -33,7 +44,9 @@ CALL apoc.periodic.iterate(
   )",
   {batchSize: 1000, iterateList: true, parallel: false}
 )
+```
 
+```
 //delete duplicate publications
 MATCH (p:Publication)
 WITH p 
@@ -42,7 +55,9 @@ WITH p.id as id, collect(p) AS nodes
 WHERE size(nodes) >  1
 UNWIND nodes[1..] AS n
 DETACH DELETE n
+```
 
+```
 //wenn existent: venue importieren 
 CALL apoc.periodic.iterate(
   "CALL apoc.load.json('file:///dblp-ref-3.json') YIELD value",
@@ -51,7 +66,9 @@ CALL apoc.periodic.iterate(
   )",
   {batchSize: 1000, iterateList: true, parallel: false}
 )
+```
 
+```
 //position von autoren setzen
 CALL apoc.periodic.iterate(
   "CALL apoc.load.json('file:///dblp-ref-3.json') YIELD value",
@@ -62,7 +79,9 @@ CALL apoc.periodic.iterate(
    SET x.position = position",
   {batchSize: 1000, iterateList: true, parallel: false}
 )
+```
 
+```
 //publishedIn-relationship zw publikationen und venues:
 CALL apoc.periodic.iterate(
   "CALL apoc.load.json('file:///dblp-ref-3.json') YIELD value",
@@ -73,7 +92,9 @@ CALL apoc.periodic.iterate(
    )",
   {batchSize: 1000, iterateList: true, parallel: false}
 )
+```
 
+```
 //cites-relationship zw publikationen
 CALL apoc.periodic.iterate(
   "CALL apoc.load.json('file:///dblp-ref-3.json') YIELD value",
@@ -83,4 +104,4 @@ CALL apoc.periodic.iterate(
    MERGE (p1)-[:cites]->(p2)",
   {batchSize: 1000, iterateList: true, parallel: false}
 )
-
+```
