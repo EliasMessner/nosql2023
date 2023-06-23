@@ -24,12 +24,12 @@ sudo docker start neo4j-nosql-task
 http://localhost:7474/
 ```
 
-## Initial Credentials
-### User
+### Initial Credentials
+#### User
 ```
 neo4j
 ```
-### Password
+#### Password
 ```
 neo4j
 ```
