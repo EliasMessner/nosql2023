@@ -118,3 +118,5 @@ MATCH (v)<- [:publishedIn]-(p:Publication)
 RETURN p1.title AS TopPaper, v.name AS Venue, COUNT(p) AS PublicationCount
 ORDER BY PublicationCount DESC
 ```
+
+> 7
