@@ -105,13 +105,16 @@ RETURN a1.name, a2.name, CommonPublications
 
 # Q10
 Ermitteln Sie das am meisten zitierte Papier im Jahr 2016 und geben sie alle Venues der Publikationen aus, die dieses Top-Papier zitieren, sowie die Anzahl der Publikationen pro Venue. Sortieren Sie die Ausgabe absteigend nach der Anzahl. Hinweis: mit dem CALL Operator können Subqueries realisiert werden. 
-# TODO use subquery and output all venues
+# TODO must use subquery?
 ```
-// Ermitteln Sie das am meisten zitierte Papier im Jahr 2016 und geben sie alle Venues der Publikationen aus, die dieses Top-Papier zitieren, sowie die Anzahl der Publikationen pro Venue. Sortieren Sie die Ausgabe absteigend nach der Anzahl. Hinweis: mit dem CALL Operator können Subqueries realisiert werden. 
-MATCH (p1:Publication {year: 2016})<-[:cites]-(:Publication)-[:publishedIn]->(v:Venue)
-WITH p1, v, COUNT(*) AS CitationCount
-ORDER BY CitationCount DESC
+// Ermitteln Sie das am meisten zitierte Papier im Jahr 2016 und geben sie alle Venues der Publikationen aus, die dieses Top-Papier zitieren, sowie die Anzahl der Publikationen pro Venue. Sortieren Sie die Ausgabe absteigend nach der Anzahl. Hinweis: mit dem CALL Operator können Subqueries realisiert werden.
+MATCH (p1:Publication {year: 2016})<-[:cites]-(p2:Publication)
+WITH p1, COUNT(p2) AS citationCount
+ORDER BY citationCount DESC
 LIMIT 1
-RETURN p1.title AS TopPaper, v.name AS Venue, CitationCount
+MATCH (p1)<-[:cites]-(p3:Publication)-[:publishedIn]->(v:Venue)
+WITH p1, v
+MATCH (v)<- [:publishedIn]-(p:Publication)
+RETURN p1.title AS TopPaper, v.name AS Venue, COUNT(p) AS PublicationCount
+ORDER BY PublicationCount DESC
 ```
-
