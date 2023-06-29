@@ -117,4 +117,5 @@ RETURN p1.title AS TopPaper, v.name AS Venue, COUNT(p3) AS PublicationCount
 ORDER BY PublicationCount DESC
 ```
 
-> ? // TODO
+> 7
+
