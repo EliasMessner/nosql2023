@@ -155,13 +155,12 @@ ORDER BY score DESC LIMIT 10
 
 ## 3 
 Erstellen Sie nun eine Cypher-Query, die alle benachbarten Publikationen der Top-Publikation ermittelt, die in einer anderen Community existieren (unterschiedliche Community-ID (louvain_community)). Lassen Sie sich die Anzahl der Communities aller Nachbarn ausgeben (COUNT(DISTINCT ...)) um zu sehen, wie viele Papiere aus unterschiedlichen Communities die gefundene Top-Publikation verbindet.
-> ! Not tested yet !
 ```
 // Nachbarn der Top-Publikation
-MATCH (topPublication {title: ...})-[:cites]-(neighbor)
+MATCH (topPublication {title: 'Exact Matrix Completion via Convex Optimization'})-[:cites]-(neighbor)
 WHERE topPublication.louvain_community <> neighbor.louvain_community
 WITH neighbor
 RETURN COUNT(DISTINCT(neighbor.louvain_community)) as numberOfNeighborCommunities
 ```
-> TODO
+> 14
 
