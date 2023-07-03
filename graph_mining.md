@@ -79,6 +79,7 @@ ORDER BY communityCount DESC
 RETURN nodeCount, communityCount
 ```
 > 132 rows:
+
 | "nodeCount" | "communityCount" |
 | ----------- | ---------------- |
 | 3           | 772              |
