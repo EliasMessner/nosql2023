@@ -139,19 +139,10 @@ ORDER BY numberOfAuthors DESC LIMIT 5
 ```
 | p.title                            | numberOfAuthors |
 | ---------------------------------- | --------------- |
-| Construction and Analysis of Weighte|
-| d Brain Networks from SICE for the St|
-| udy of Alzheimer's Disease          | 351             |
-| ---------------------------------- | --------------- |
-| In-Datacenter Performance Analysis o|
-| f a Tensor Processing Unit          | 74              |
-| ---------------------------------- | --------------- |
-| 11.1 A 512Gb 3b/cell flash memory on|
-|  64-word-line-layer BiCS technology | 57              |
-| ---------------------------------- | --------------- |
-| 11.4 A 512Gb 3b/cell 64-stacked WL 3|
-| D V-NAND flash memory               | 44              |
-| ---------------------------------- | --------------- |
+| Construction and Analysis of Weighted Brain Networks from SICE for the Study of Alzheimer's Disease| 351             |
+| In-Datacenter Performance Analysis of a Tensor Processing Unit          | 74              |
+| 11.1 A 512Gb 3b/cell flash memory on 64-word-line-layer BiCS technology | 57              |
+| 11.4 A 512Gb 3b/cell 64-stacked WL 3D V-NAND flash memory               | 44              |
 | In Memoriam: Gunter Menz            | 44              |
 
 
