@@ -137,21 +137,23 @@ WITH p, Collect(a) AS authors
 RETURN p.title, size(authors) AS numberOfAuthors
 ORDER BY numberOfAuthors DESC LIMIT 5
 ```
-╒══════════════════════════════════════════════════════════════════════╤═════════════════╕
-│"p.title"                                                             │"numberOfAuthors"│
-╞══════════════════════════════════════════════════════════════════════╪═════════════════╡
-│"Construction and Analysis of Weighted Brain Networks from SICE for th│351              │
-│e Study of Alzheimer's Disease"                                       │                 │
-├──────────────────────────────────────────────────────────────────────┼─────────────────┤
-│"In-Datacenter Performance Analysis of a Tensor Processing Unit"      │74               │
-├──────────────────────────────────────────────────────────────────────┼─────────────────┤
-│"11.1 A 512Gb 3b/cell flash memory on 64-word-line-layer BiCS technolo│57               │
-│gy"                                                                   │                 │
-├──────────────────────────────────────────────────────────────────────┼─────────────────┤
-│"11.4 A 512Gb 3b/cell 64-stacked WL 3D V-NAND flash memory"           │44               │
-├──────────────────────────────────────────────────────────────────────┼─────────────────┤
-│"In Memoriam: Gunter Menz"                                            │44               │
-└──────────────────────────────────────────────────────────────────────┴─────────────────┘
+| p.title                            | numberOfAuthors |
+| ---------------------------------- | --------------- |
+| Construction and Analysis of Weighte|
+| d Brain Networks from SICE for the St|
+| udy of Alzheimer's Disease          | 351             |
+| ---------------------------------- | --------------- |
+| In-Datacenter Performance Analysis o|
+| f a Tensor Processing Unit          | 74              |
+| ---------------------------------- | --------------- |
+| 11.1 A 512Gb 3b/cell flash memory on|
+|  64-word-line-layer BiCS technology | 57              |
+| ---------------------------------- | --------------- |
+| 11.4 A 512Gb 3b/cell 64-stacked WL 3|
+| D V-NAND flash memory               | 44              |
+| ---------------------------------- | --------------- |
+| In Memoriam: Gunter Menz            | 44              |
+
 
 
 ## Q12
@@ -164,19 +166,14 @@ WITH a1, COUNT(p1) AS anzahlSelbszitierungen
 ORDER BY anzahlSelbszitierungen DESC LIMIT 5
 RETURN a1.name, anzahlSelbszitierungen
 ```
-╒══════════════════════╤════════════════════════╕
-│"a1.name"             │"anzahlSelbszitierungen"│
-╞══════════════════════╪════════════════════════╡
-│"Haiying Shen"        │19                      │
-├──────────────────────┼────────────────────────┤
-│"Jinwei Liu"          │16                      │
-├──────────────────────┼────────────────────────┤
-│"Raed Ibraheem Hamed" │13                      │
-├──────────────────────┼────────────────────────┤
-│"Mazin Abed Mohammed" │13                      │
-├──────────────────────┼────────────────────────┤
-│"Dheyaa Ahmed Ibrahim"│13                      │
-└──────────────────────┴────────────────────────┘
+| a1.name             | anzahlSelbszitierungen |
+| ------------------- | ---------------------- |
+| Haiying Shen        | 19                     |
+| Jinwei Liu          | 16                     |
+| Raed Ibraheem Hamed | 13                     |
+| Mazin Abed Mohammed | 13                     |
+| Dheyaa Ahmed Ibrahim| 13                     |
+
 
 
 ## Q13
@@ -223,29 +220,19 @@ ORDER BY p.cite_count DESC
 LIMIT 10
 RETURN p.id, p.title, p.cite_count
 ```
-╒══════════════════════════════════════╤═════════╤══════════════╕
-│"p.id"                                │"p.title"│"p.cite_count"│
-╞══════════════════════════════════════╪═════════╪══════════════╡
-│"e2f7a74a-8430-4463-94ce-fe85dfd309f9"│null     │587           │
-├──────────────────────────────────────┼─────────┼──────────────┤
-│"153c5014-dc7a-44a8-a93f-5cd27f1193df"│null     │450           │
-├──────────────────────────────────────┼─────────┼──────────────┤
-│"c1b6b493-01ef-420f-be44-7bacfe34e846"│null     │402           │
-├──────────────────────────────────────┼─────────┼──────────────┤
-│"f6bd8b64-684d-429a-aab5-8ff3a2c23cd6"│null     │388           │
-├──────────────────────────────────────┼─────────┼──────────────┤
-│"b944f77f-113b-4a02-ae5e-d4a124b8fd5b"│null     │379           │
-├──────────────────────────────────────┼─────────┼──────────────┤
-│"dd83785a-dd19-41e3-9b25-ebabbd48d336"│null     │345           │
-├──────────────────────────────────────┼─────────┼──────────────┤
-│"546cc930-3d5a-4208-a77b-a506f146ab97"│null     │324           │
-├──────────────────────────────────────┼─────────┼──────────────┤
-│"bff1945c-7b01-4b42-b6c4-1e3601c18a6b"│null     │302           │
-├──────────────────────────────────────┼─────────┼──────────────┤
-│"c93eac1a-7d9a-48ab-9fb4-389c85bea00e"│null     │281           │
-├──────────────────────────────────────┼─────────┼──────────────┤
-│"051956bb-f64b-4fdb-87f8-3e2868b8b5d8"│null     │242           │
-└──────────────────────────────────────┴─────────┴──────────────┘
+| p.id                                 | p.title | p.cite_count |
+| ------------------------------------ | ------- | ------------ |
+| e2f7a74a-8430-4463-94ce-fe85dfd309f9 | null    | 587          |
+| 153c5014-dc7a-44a8-a93f-5cd27f1193df | null    | 450          |
+| c1b6b493-01ef-420f-be44-7bacfe34e846 | null    | 402          |
+| f6bd8b64-684d-429a-aab5-8ff3a2c23cd6 | null    | 388          |
+| b944f77f-113b-4a02-ae5e-d4a124b8fd5b | null    | 379          |
+| dd83785a-dd19-41e3-9b25-ebabbd48d336 | null    | 345          |
+| 546cc930-3d5a-4208-a77b-a506f146ab97 | null    | 324          |
+| bff1945c-7b01-4b42-b6c4-1e3601c18a6b | null    | 302          |
+| c93eac1a-7d9a-48ab-9fb4-389c85bea00e | null    | 281          |
+| 051956bb-f64b-4fdb-87f8-3e2868b8b5d8 | null    | 242          |
+
 
 > Alle Titel sind null
 
