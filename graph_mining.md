@@ -131,7 +131,7 @@ CALL gds.graph.project(
 
 ## 2 
 Führen Sie den Algorithmus Betweenness Centrality auf den soeben projizierten Graphen im Modus "stream" aus und lassen sich die Titel der Top 10 Publikationen mit dem errechneten Score ausgeben. Je höher der BC-Score, desto mehr kürzeste Pfade gehen durch den Knoten. Kopieren Sie sich den Titel der Publikation mit dem höchsten Score.
-> ! takes very long !
+> takes very long !
 ```
 // Betweenness Centrality - Titel der Top 10 Publikationen
 CALL gds.betweenness.stream('dblp-community-cites')
@@ -139,7 +139,18 @@ YIELD nodeId, score
 RETURN gds.util.asNode(nodeId).title as title, score
 ORDER BY score DESC LIMIT 10
 ```
-> TODO
+| "title"                                                               | "score"          |
+| --------------------------------------------------------------------- | ---------------- |
+| "Exact Matrix Completion via Convex Optimization"                     | 1060.0           |
+| "Local Features and Kernels for Classification of Texture and Object Categories: A Comprehensive Study"                                     | 811.0            |
+| "Machine learning and signal processing for big multimedia analysis"  | 765.0000000000001|
+| "Differential privacy"                                                | 673.0            |
+| "Mobile Edge Computing: Survey and Research Outlook."                 | 476.0            |
+| "Faster R-CNN: towards real-time object detection with region proposal networks"                                                            | 446.0            |
+| "Comparison of topic extraction approaches and their results"         | 423.8071428571428|
+| "Same data—different results? Towards a comparative approach to the identification of thematic structures in science"                       | 394.9321428571429|
+| "A review of affective computing: From unimodal analysis to multimodal fusion"                                                              | 390.6666666666668|
+| "Deep learning of representations for unsupervised and transfer learning"                                                                   | 382.5            |
 
 
 ## 3 
